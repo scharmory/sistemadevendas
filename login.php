@@ -1,3 +1,13 @@
+<?php
+	if (isset($_POST['btn-enviar'])){
+		include_once("controller/LoginController.class.php");
+		$controle  = new LoginController();
+		
+		$mensagem = $controle->logar($_POST);
+	}
+	
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -13,7 +23,7 @@
 			 <img class="img-titulo" src="imagens/siver-roxo.png">
 			<button class=" btn btn-default pull-right btn-cadastro" type="button"  data-toggle="modal" data-target="#modalCadastro"> Cadastre-se </button>
 			<div class="formulario-login">
-				<form method="post" action="enter.php">
+				<form method="post">
 					<div class="form-group">
 						<label for="login">Login</label>
 						<input type="text" name="login" id="login" class="form-control" placeholder="Digite o seu login"/>
@@ -26,13 +36,13 @@
 					<input type="submit" name="btn-enviar" class="btn btn-block btn-primary"  id="btn-enviar" value="Logar">
 				</form>
 				<?php
-					if(isset($_GET['erro'])){
+					if(isset($mensagem)){
 				?>
 				<div id="posiciona">
 						 
 						 <img class="img-centralizado" src="imagens/atencao.png">
 						 
-						 Erro! Usuário ou senha incorreta.
+						 <?=$mensagem?>
 				</div>
 				<?php
 				
