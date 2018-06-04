@@ -38,12 +38,13 @@
 				<?php
 					if(isset($mensagem)){
 				?>
-				<div id="posiciona">
-						 
-						 <img class="img-centralizado" src="imagens/atencao.png">
-						 
+					<div id="posiciona">
+							 
+						<img class="img-centralizado" src="imagens/atencao.png">
+						<div class="text-center text-danger">
 						 <?=$mensagem?>
-				</div>
+						</div>
+					</div>
 				<?php
 				
 				}

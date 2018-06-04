@@ -11,12 +11,24 @@
 
             } else{
             	if ($usuario->getSenha()== $post['senha']){
+            		session_start();
+            		$_SESSION['usuario'] = $usuario->getNome();
+            		$_SESSION['logado'] = true;
             		header("location:inicio.php");
 
             	} else{
             		return "Senha Incorreta!";
             	}
             }
+
+		}
+		public function vericaLogado(){
+			session_start();
+		    if($_SESSION['logado']!= true){
+		    	unset($_SESSION);
+		       	header("location: login.php");
+
+		    }
 
 		}
 	}
