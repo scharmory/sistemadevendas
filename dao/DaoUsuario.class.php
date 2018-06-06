@@ -19,6 +19,16 @@
 			$usuario->setSenha($dadosDoBanco['senha']);
 			return $usuario;
 		}
+		public function salvarUsuarioNoBanco($dadosDoFormulario){
+			$sql = "INSERT INTO usuario (id_usuario, nome, sobrenome, email, senha) VALUES (NULL, :nome, :sobrenome, :email, :senha);";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":nome",$dadosDoFormulario['cnome']);
+			$sqlPreparado->bindValue(":sobrenome",$dadosDoFormulario['csobrenome']);
+			$sqlPreparado->bindValue(":email",$dadosDoFormulario['cemail']);
+			$sqlPreparado->bindValue(":senha",$dadosDoFormulario['csenha']);
+			$resposta = $sqlPreparado->execute();
+			
+		}
 
 	}
 

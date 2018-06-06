@@ -22,7 +22,7 @@
             }
 
 		}
-		public function vericaLogado(){
+		public function verificaLogado(){
 			session_start();
 		    if($_SESSION['logado']!= true){
 		    	unset($_SESSION);
@@ -31,5 +31,10 @@
 		    }
 
 		}
+		public function cadastrar($dadosDoFormulario){
+			$dao = new DaoUsuario();
+			$dao->salvarUsuarioNoBanco($dadosDoFormulario);
+		}
 	}
+
 ?>

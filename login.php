@@ -5,6 +5,13 @@
 		
 		$mensagem = $controle->logar($_POST);
 	}
+	if (isset($_POST['btn-cadastrar'])){
+		include_once("controller/LoginController.class.php");
+		$controle  = new LoginController();
+		
+		$mensagem = $controle->cadastrar($_POST);
+	}
+	
 	
 ?>
 
@@ -66,18 +73,18 @@
 					<!-- Modal corpo-->
 					<div class="modal-body">
 					<!-- formulário -->
-						<form id="formCadastro" name="formCadastro" method="POST" action="cadastro.php" onsubmit="return validarSenha();">
+						<form id="formCadastro" name="formCadastro" method="POST" onsubmit="return validarSenha();">
 							<div class="form-group">
 								<label for="clogin">Nome</label>
-								<input type="text" name="nome" id="nome" class="form-control" placeholder="Digite o seu nome" required/>
+								<input type="text" name="cnome" id="nome" class="form-control" placeholder="Digite o seu nome" required/>
 							</div>
 							<div class="form-group">
 								<label for="sobrenome">Sobrenome</label>
-								<input type="text" name="sobrenome" id="sobrenome" class="form-control" placeholder="Digite o seu sobrenome" required/>
+								<input type="text" name="csobrenome" id="sobrenome" class="form-control" placeholder="Digite o seu sobrenome" required/>
 							</div>
 							<div class="form-group">
 								<label for="email">E-mail</label>
-								<input type="text" name="email" id="email" class="form-control" placeholder="Digite o seu e-mail"required/>
+								<input type="text" name="cemail" id="email" class="form-control" placeholder="Digite o seu e-mail"required/>
 							</div>
 							<div class="form-group">
 								<label for="csenha">Senha</label>
@@ -88,7 +95,7 @@
 								<input type="password" name="confirmarsenha" id="confirmarsenha" class="form-control" placeholder="Confirme sua senha" required/>
 							</div>
 							
-							<input type="submit" name="btn-enviar" class="btn btn-block btn-primary"  id="btn-enviar" value="Cadastrar">
+							<input type="submit" name="btn-cadastrar" class="btn btn-block btn-primary"  id="btn-enviar" value="Cadastrar">
 						</form>
 					</div>
 					<!-- Modal rodape-->
