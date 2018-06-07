@@ -32,8 +32,8 @@
 			<div class="formulario-login">
 				<form method="post">
 					<div class="form-group">
-						<label for="login">Login</label>
-						<input type="text" name="login" id="login" class="form-control" placeholder="Digite o seu login"/>
+						<label for="email">E-mail</label>
+						<input type="text" name="email" id="email" class="form-control" placeholder="Digite o seu e-mail"/>
 					</div>
 					<div class="form-group">
 						<label for="senha">Senha</label>

@@ -5,7 +5,7 @@
 		public function logar($post){
 			
 			$dao = new DaoUsuario();
-			$usuario = $dao->buscarUsuarioPorLogin($post['login']);
+			$usuario = $dao->buscarUsuarioPorEmail($post['email']);
             if (is_null ($usuario->getIdUsuario())) {
             	return "Usuário não encontrado!";
 

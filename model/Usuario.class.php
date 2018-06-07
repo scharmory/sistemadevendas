@@ -2,7 +2,8 @@
 	class Usuario{
 		private $idUsuario;
 		private $nome;
-		private $login;
+		private $sobrenome;
+		private $email;
 		private $senha;
 
 		public function getIdUsuario(){
@@ -19,12 +20,18 @@
 		public function setNome($nome){
 			$this->nome = $nome;
 		}
-
-		public function getLogin(){
-			return $this->login;
+		public function getSobrenome(){
+			return $this->sobrenome;
 		}
-		public function setLogin($login){
-			$this->login = $login;
+		public function setSobrenome($nome){
+			$this->sobrenome = $sobrenome;
+		}
+
+		public function getEmail(){
+			return $this->email;
+		}
+		public function setEmail($email){
+			$this->email = $email;
 		}
 		public function getSenha(){
 			return $this->senha;

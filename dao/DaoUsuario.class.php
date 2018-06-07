@@ -2,10 +2,10 @@
 	include_once("model/Usuario.class.php");
 	include_once("includes/Conexao.class.php");
 	class DaoUsuario{
-		public function buscarUsuarioPorLogin($login){
-			$sql = "SELECT * FROM tb_administrador WHERE login=:login";
+		public function buscarUsuarioPorEmail($email){
+			$sql = "SELECT * FROM usuario WHERE email=:email";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
-			$sqlPreparado->bindValue(":login",$login);
+			$sqlPreparado->bindValue(":email",$email);
 			$resposta = $sqlPreparado->execute();
 			$usuario = $this->transformaUsuarioDoBancoEmObjeto($sqlPreparado->fetch(PDO::FETCH_ASSOC));
 			return $usuario;
@@ -13,9 +13,10 @@
 		}
 		public function transformaUsuarioDoBancoEmObjeto($dadosDoBanco){
 			$usuario = new Usuario();
-			$usuario->setIdUsuario($dadosDoBanco['id_administrador']);
+			$usuario->setIdUsuario($dadosDoBanco['id_usuario']);
 			$usuario->setNome($dadosDoBanco['nome']);
-			$usuario->setLogin($dadosDoBanco['login']);
+			$usuario->setSobrenome($dadosDoBanco['sobrenome']);
+			$usuario->setEmail($dadosDoBanco['email']);
 			$usuario->setSenha($dadosDoBanco['senha']);
 			return $usuario;
 		}
