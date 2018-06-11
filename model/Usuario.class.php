@@ -20,10 +20,11 @@
 		public function setNome($nome){
 			$this->nome = $nome;
 		}
+		
 		public function getSobrenome(){
 			return $this->sobrenome;
 		}
-		public function setSobrenome($nome){
+		public function setSobrenome($sobrenome){
 			$this->sobrenome = $sobrenome;
 		}
 
