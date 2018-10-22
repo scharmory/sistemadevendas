@@ -9,7 +9,7 @@
 		include_once("controller/LoginController.class.php");
 		$controle  = new LoginController();
 		
-		$mensagem = $controle->cadastrar($_POST);
+		$mensagemCadastro = $controle->cadastrar($_POST);
 	}
 	
 	
@@ -20,6 +20,7 @@
 <html>
 	<head>
 		<title>Controle de Vendas </title>
+		<meta charset="utf-8">
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/estilo.css" />
 	</head>
@@ -29,6 +30,11 @@
 			</br>
 			 <img class="img-titulo" src="imagens/siver-roxo.png">
 			<button class=" btn btn-default pull-right btn-cadastro" type="button"  data-toggle="modal" data-target="#modalCadastro"> Cadastre-se </button>
+			<?php 
+				if (isset($mensagemCadastro)): 
+					echo $mensagemCadastro;
+				endif
+			?>
 			<div class="formulario-login">
 				<form method="post">
 					<div class="form-group">
@@ -49,7 +55,7 @@
 							 
 						<img class="img-centralizado" src="imagens/atencao.png">
 						<div class="text-center text-danger">
-						 <?=$mensagem?>
+							<?=$mensagem?>
 						</div>
 					</div>
 				<?php
@@ -67,8 +73,8 @@
 				<div class="modal-content">
 					<!-- Modal cabeçalho-->
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">Cadastre-se</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					<!-- Modal corpo-->
 					<div class="modal-body">
@@ -84,7 +90,7 @@
 							</div>
 							<div class="form-group">
 								<label for="email">E-mail</label>
-								<input type="text" name="cemail" id="email" class="form-control" placeholder="Digite o seu e-mail"required/>
+								<input type="text" name="cemail" id="email" class="form-control" placeholder="Digite o seu e-mail" required/>
 							</div>
 							<div class="form-group">
 								<label for="csenha">Senha</label>
@@ -97,6 +103,7 @@
 							
 							<input type="submit" name="btn-cadastrar" class="btn btn-block btn-primary"  id="btn-enviar" value="Cadastrar">
 						</form>
+						
 					</div>
 					<!-- Modal rodape-->
 					<div class="modal-footer">
@@ -105,6 +112,7 @@
 				</div>
 			</div>
 		</div>
+
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js" ></script>
 		<script>
@@ -117,6 +125,7 @@
 				}
 				return true;
 			}
+			
         </script>
 	</body>
 </html>

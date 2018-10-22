@@ -22,7 +22,7 @@
             }
 
 		}
-		public function verificaLogado(){
+		public static function verificaLogado(){
 			session_start();
 		    if($_SESSION['logado']!= true){
 		    	unset($_SESSION);
@@ -34,7 +34,7 @@
 		public function cadastrar($dadosDoFormulario){
 			$dao = new DaoUsuario();
 			$dao->salvarUsuarioNoBanco($dadosDoFormulario);
+			return "Cadastro Efetuado Com Sucesso!";
 		}
 	}
-
 ?>

@@ -16,16 +16,14 @@
 			 <br>
 			 <img class="img-titulo" src="imagens/siver-roxo.png">
 			 <br>
-			 	<a class=" btn btn-default pull-left btn-cadastro" href="vendas.php"> Vendas</a>
+			 	<a class=" btn btn-default float-left btn-cadastro" href="fornecedores.php" > Voltar para os fornecedores</a>
 				<a class=" btn btn-default pull-left btn-cadastro" href="produtos.php"> Produtos </a>
 				<a class=" btn btn-default pull-left btn-cadastro" href="clientes.php"> Clientes </a>
 				<a class=" btn btn-default pull-left btn-cadastro" href="fornecedores.php"> Fornecedores </a>
 				<a class=" btn btn-default pull-left btn-cadastro" href="funcionarios.php"> Funcionários</a>
 				<a class=" btn btn-default float-right btn-cadastro" href="sair.php" > Sair </a>
-				
 			<div class="apresentacao">
-			 	<h1> Seja bem-vindo(a) <?=$_SESSION['usuario']?> ! </h1>
-				<h1> Esse espaço servirá para controlar o estoque, registrar preço de custo e de venda dos produtos, lançar vendas, registrar dados do cliente, data de pagamento, entre outros dados que serão muito úteis para o desenvolvimento de seu empreendimento. Obrigada pela confiança! ♥♥♥ </h1>
+				<h1> ---------- Escrever aqui ----------</h1>
 			</div>
 			
 		</div>

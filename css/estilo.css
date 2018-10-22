@@ -22,7 +22,7 @@ body {
 }
 
 .formulario-login{
-	width: 250px;
+	width: 310px;
 	background-color: rgba(65, 97, 119, .2);
 	padding: 20px;
 	margin: 0 auto;
@@ -48,7 +48,6 @@ body {
 	background-color: #0b8dca;
 	color: white;
 }
-
 .apresentacao{
 	background-color: rgba(65, 97, 119, .2);
 	padding: 35px;
@@ -57,4 +56,19 @@ body {
 	border-radius: 15px;
 	box-shadow: 0 0 15px 0;
 	text-align: justify;
+}
+.caixa-produto{
+	border: gray 1px solid;
+	text-align: center;
+	padding: 15px;
+	box-shadow: aqua 0px 0px 0px 5px;
+}
+.formulario-login1{
+	width: 600px;
+	background-color: rgba(65, 97, 119, .2);
+	padding: 20px;
+	margin: 0 auto;
+	margin-top: 100px;
+	border-radius: 15px;
+	box-shadow: 0 0 15px 0;
 }
