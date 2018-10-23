@@ -29,23 +29,12 @@
 			<img class="img-titulo" src="imagens/siver-roxo.png">
 			<br>
 			<a class=" btn btn-default float-left btn-cadastro" href="inicio.php" > Voltar </a>
-		 	<a class=" btn btn-default pull-left btn-cadastro" href="cadFuncionario.php"> Cadastrar Funcionários </a>
+		 	<a class=" btn btn-default pull-left btn-cadastro" href="cadFuncionario.php"> Cadastrar Funcionário </a>
 	 		<a class=" btn btn-default float-right btn-cadastro" href="sair.php" > Sair </a>
 	 		<div class="row">
 				<?php
 					$listaDeFuncionario = $controle->listarFuncionarios();
 					foreach ($listaDeFuncionario as $funcionario) :
-				?>
-						<div class="caixa-produto col-md-3">
-						 	<h1><?=$funcionario->getNome()?></h1>
-						 	<h1>Cod.<?=$funcionario->getIdFuncionario()?></h1>
-							<h1><?=$funcionario->getEndereco()?></h1>
-							<h1><?=$funcionario->getTelefone()?></h1>
-							<h1>Salário(R$): <?=$funcionario->getSalario()?></h1>
-							<a class="btn btn-default btn-cadastro" href="funcionarios.php?op=excluir&id=<?=$funcionario-> getIdFuncionario()?>" > excluir funcionário </a>
-							<a class="btn btn-default btn-cadastro" href="dadosfuncionario.php?id=<?=$funcionario->getIdFuncionario()?>"> ver funcionario </a>
-						</div>
-				<?php
 					endforeach;
 				?>
 			</div>

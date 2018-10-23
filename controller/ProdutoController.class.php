@@ -24,6 +24,17 @@
 			$dao = new DaoProduto();
 			return $dao ->listarProdutos();
 		}
+
+		function buscarProdutoPorIdNoBanco($id)
+		{
+			$dao = new DaoProduto ();
+			return $dao ->buscarProdutoPorIdNoBanco($id);
+		}
+
+		function atualizarProduto($post){
+			$dao = new DaoProduto();
+			$dao -> atualizar($post);
+		}
 	}
 
 ?>

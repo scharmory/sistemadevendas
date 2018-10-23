@@ -44,7 +44,35 @@
 			//var_dump($sqlPreparado->errorInfo());
 			
 		}
-		
+		public function buscarProdutoPorIdNoBanco($id){
+			$sql = "SELECT * FROM tb_produto WHERE id_produto=:id";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":id",$id);
+			$resposta = $sqlPreparado->execute();
+			$produto = $this->transformaDadosDoBancoEmObjeto($sqlPreparado->fetch(PDO::FETCH_ASSOC));
+			return $produto;
+			
+		}
+		public function atualizar($post){
+			$sql = "UPDATE 
+					tb_produto 
+					SET 
+					nome=:nome,
+					precoc=:precoc,
+					precov=:precov,
+					estoque=:estoque
+					WHERE id_produto=:id";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":id",$post['codigo']);
+			$sqlPreparado->bindValue(":nome",$post['nome']);
+			$sqlPreparado->bindValue(":precoc",$post['precoc']);
+			$sqlPreparado->bindValue(":precov",$post['precov']);
+			$sqlPreparado->bindValue(":estoque",$post['estoque']);
+			$resposta = $sqlPreparado->execute();
+			
+			
+		}
+
 		public function excluir($id){
 			$sql = "DELETE  FROM tb_produto WHERE id_produto=:id";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);

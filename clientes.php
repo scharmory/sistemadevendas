@@ -27,23 +27,12 @@
 			<img class="img-titulo" src="imagens/siver-roxo.png">
 			<br>
 			<a class=" btn btn-default float-left btn-cadastro" href="inicio.php" > Voltar </a>
-		 	<a class=" btn btn-default pull-left btn-cadastro" href="cadcliente.php"> Cadastrar Clientes </a>
+		 	<a class=" btn btn-default pull-left btn-cadastro" href="cadcliente.php"> Cadastrar Cliente </a>
 	 		<a class=" btn btn-default float-right btn-cadastro" href="sair.php" > Sair </a>
 	 		<div class="row">
 				<?php
 					$listaDeClientes = $controle->listarClientes();
 					foreach ($listaDeClientes as $cliente) :
-				?>
-						<div class="caixa-produto col-md-3">
-						 	<h1><?=$cliente->getNome()?></h1>
-						 	<h1>Cod.<?=$cliente->getIdCliente()?></h1>
-							<h1><?=$cliente->getEndereco()?></h1>
-							<h1><?=$cliente->getCelular()?></h1>
-							<h1><?=$cliente->getTelefone()?></h1>
-							<a class="btn btn-default btn-cadastro" href="clientes.php?op=excluir&id=<?=$cliente-> getIdCliente()?>" > excluir cliente </a>
-							<a class="btn btn-default btn-cadastro" href="dadoscliente.php?id=<?=$cliente->getIdCliente()?>"> ver cliente </a>
-						</div>
-				<?php
 					endforeach;
 				?>
 			</div>
@@ -54,8 +43,8 @@
 		                    <th>Nome</th>         
 		                    <th>Endereço</th>          
 		                    <th>Celular</th>
-		                    <th>Telefone</th>                              
-		                    <th></th>
+		                    <th>Telefone</th> 
+		        			<th></th>                             
 		                </tr>
 		            </thead>
 		            <tbody>

@@ -21,10 +21,10 @@
 			$this->nome = $nome;
 		}
 
-		public function getestoque(){
+		public function getEstoque(){
 			return $this->estoque;
 		}
-		public function setestoque($estoque){
+		public function setEstoque($estoque){
 			$this->estoque = $estoque;
 		}
 
