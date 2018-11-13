@@ -39,7 +39,7 @@
 				?>
 			</div>
 			<div class="row">
-				<table class="display" id="tabela_registro">
+				<table class="table" id="tabela_registro">
 		            <thead>
 		                <tr>                       
 		                    <th>Nome</th>         
@@ -61,7 +61,7 @@
 									<td><?=$funcionario->getSalario()?></td>
 									<td>
 										<a class="btn-cadastro" href="funcionarios.php?op=excluir&id=<?=$funcionario-> getIdFuncionario()?>" > excluir funcionário </a>
-										<a class="btn-cadastro" href="dadosfuncionario.php?id=<?=$funcionario->getIdFuncionario()?>"> ver funcionario </a>
+										<a class="btn-cadastro" href="alterarFuncionario.php?id=<?=$funcionario->getIdFuncionario()?>"> editar funcionario </a>
 									</td>
 								</tr>
 						<?php

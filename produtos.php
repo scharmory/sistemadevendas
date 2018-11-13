@@ -37,7 +37,7 @@
 				?>
 			</div>
 			<div class="row">
-				<table class="display" id="tabela_registro">
+				<table class="table" id="tabela_registro">
 		            <thead>
 		                <tr>                       
 		                    <th>Nome</th>         
@@ -59,7 +59,6 @@
 									<td><?=$produto->getEstoque()?></td>
 									<td>
 										<a class="btn-cadastro" href="produtos.php?op=excluir&id=<?=$produto-> getIdProduto()?>" > excluir produto </a>
-										<a class="btn-cadastro" href="dadosproduto.php?id=<?=$produto->getIdProduto()?>"> ver produto </a>
 										<a class="btn-cadastro" href="alterarProduto.php?id=<?=$produto-> getIdProduto()?>" > editar produto </a>
 									</td>
 								</tr>

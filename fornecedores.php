@@ -37,7 +37,7 @@
 				?>
 			</div>
 			<div class="row">
-				<table class="display" id="tabela_registro">
+				<table class="table" id="tabela_registro">
 		            <thead>
 		                <tr>                       
 		                    <th>Nome</th>         
@@ -57,7 +57,7 @@
 									<td><?=$fornecedor->getTelefone()?></td>
 									<td>
 										<a class="btn-cadastro" href="fornecedors.php?op=excluir&id=<?=$fornecedor-> getIdFornecedor()?>" > excluir fornecedor </a>
-										<a class="btn-cadastro" href="dadosfornecedor.php?id=<?=$fornecedor->getIdFornecedor()?>"> ver fornecedor </a>
+										<a class="btn-cadastro" href="alterarFornecedor.php?id=<?=$fornecedor->getIdFornecedor()?>"> editar fornecedor </a>
 									</td>
 								</tr>
 						<?php

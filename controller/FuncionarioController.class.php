@@ -18,7 +18,16 @@
 			return $dao ->listarFuncionarios();
 		}
 	
-	
+		function buscarFuncionarioPorIdNoBanco($id)
+			{
+				$dao = new DaoFuncionario ();
+				return $dao ->buscarFuncionarioPorIdNoBanco($id);
+			}
+
+		function atualizarFuncionario($post){
+			$dao = new DaoFuncionario();
+			$dao -> atualizar($post);
+		}
 	}
 
 ?>

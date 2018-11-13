@@ -1,5 +1,4 @@
 <?php
-	include_once("model/Cliente.class.php");
 	include_once("dao/DaoCliente.class.php");
 	class ClienteController{
 		public function salvarClienteNoBanco($dadosDoFormulario){
@@ -17,6 +16,11 @@
 			$dao = new DaoCliente();
 			return $dao ->listarClientes();
 		}
+		function buscarClientePorIdNoBanco($id)
+			{
+				$dao = new DaoCliente ();
+				return $dao ->buscarClientePorIdNoBanco($id);
+			}
 	}
 
 ?>

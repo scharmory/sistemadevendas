@@ -43,6 +43,31 @@
 			//var_dump($sqlPreparado->errorInfo());
 			
 		}
+
+		public function buscarFornecedorPorIdNoBanco($id){
+					$sql = "SELECT * FROM tb_fornecedor WHERE id_fornecedor=:id";
+					$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+					$sqlPreparado->bindValue(":id",$id);
+					$resposta = $sqlPreparado->execute();
+					$fornecedor = $this->transformaDadosDoBancoEmObjeto($sqlPreparado->fetch(PDO::FETCH_ASSOC));
+					return $fornecedor;
+				}
+
+		public function atualizar($post){
+			$sql = "UPDATE 
+					tb_fornecedor 
+					SET 
+					nome=:nome,
+					endereco=:endereco,
+					telefone=:telefone
+					WHERE id_fornecedor=:id";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":id",$post['codigo']);
+			$sqlPreparado->bindValue(":nome",$post['nome']);
+			$sqlPreparado->bindValue(":endereco",$post['endereco']);
+			$sqlPreparado->bindValue(":telefone",$post['telefone']);
+			$resposta = $sqlPreparado->execute();
+		}
 		
 		public function excluir($id){
 			$sql = "DELETE  FROM tb_fornecedor WHERE id_fornecedor=:id";

@@ -28,6 +28,12 @@
 			return $dao->listarClientes();
 			
 		}
+
+		function buscarVendaPorIdNoBanco($id)
+		{
+			$dao = new DaoVenda ();
+			return $dao ->buscarVendaPorIdNoBanco($id);
+		}
 		
 		public function excluir($id)
 		{

@@ -50,9 +50,9 @@
 			$sqlPreparado->bindValue(":id",$id);
 			$resposta = $sqlPreparado->execute();
 			$produto = $this->transformaDadosDoBancoEmObjeto($sqlPreparado->fetch(PDO::FETCH_ASSOC));
-			return $produto;
-			
+			return $produto;	
 		}
+		
 		public function atualizar($post){
 			$sql = "UPDATE 
 					tb_produto 
@@ -68,11 +68,10 @@
 			$sqlPreparado->bindValue(":precoc",$post['precoc']);
 			$sqlPreparado->bindValue(":precov",$post['precov']);
 			$sqlPreparado->bindValue(":estoque",$post['estoque']);
-			$resposta = $sqlPreparado->execute();
-			
+			$resposta = $sqlPreparado->execute();		
 			
 		}
-
+		
 		public function excluir($id){
 			$sql = "DELETE  FROM tb_produto WHERE id_produto=:id";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);

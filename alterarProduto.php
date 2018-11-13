@@ -32,7 +32,7 @@
 			<input type="text" name="precov" value="<?=$produto->getPrecov()?>" >
 			<input type="text" name="estoque" value="<?=$produto->getEstoque()?>" >
 
-			<input type="submit" name="salvar">
+			<button type="submit" name="salvar">Salvar</button>
 		</form>
 	</body>
 </html>

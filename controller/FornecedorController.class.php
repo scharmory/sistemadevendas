@@ -17,6 +17,17 @@
 			$dao = new DaoFornecedor();
 			return $dao ->listarFornecedores();
 		}
+		
+		function buscarFornecedorPorIdNoBanco($id)
+		{
+			$dao = new DaoFornecedor ();
+			return $dao ->buscarFornecedorPorIdNoBanco($id);
+		}
+
+		function atualizarFornecedor($post){
+			$dao = new DaoFornecedor();
+			$dao -> atualizar($post);
+		}
 	}
 
 ?>

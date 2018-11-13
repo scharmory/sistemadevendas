@@ -46,6 +46,33 @@
 			
 		}
 
+		public function buscarFuncionarioPorIdNoBanco($id){
+					$sql = "SELECT * FROM tb_funcionario WHERE id_funcionario=:id";
+					$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+					$sqlPreparado->bindValue(":id",$id);
+					$resposta = $sqlPreparado->execute();
+					$funcionario = $this->transformaDadosDoBancoEmObjeto($sqlPreparado->fetch(PDO::FETCH_ASSOC));
+					return $funcionario;
+				}
+
+		public function atualizar($post){
+			$sql = "UPDATE 
+					tb_funcionario 
+					SET 
+					nome=:nome,
+					endereco=:endereco,
+					celular=:celular,
+					salario=:salario
+					WHERE id_funcionario=:id";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":id",$post['codigo']);
+			$sqlPreparado->bindValue(":nome",$post['nome']);
+			$sqlPreparado->bindValue(":endereco",$post['endereco']);
+			$sqlPreparado->bindValue(":celular",$post['celular']);
+			$sqlPreparado->bindValue(":salario",$post['salario']);
+			$resposta = $sqlPreparado->execute();
+		}
+
 		public function excluir($id){
 			$sql = "DELETE  FROM tb_funcionario WHERE id_funcionario=:id";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);

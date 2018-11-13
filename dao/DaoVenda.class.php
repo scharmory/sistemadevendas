@@ -6,11 +6,11 @@
 	class DaoVenda {
 
 		public function listarVendas () {
-			$sql = "SELECT * FROM tb_venda";
+			$sql = "SELECT tv.id_venda, tp.nome as produto, tv.quantidade, tv.desconto, tv.valor_total, tv.valor_final, tc.nome as cliente FROM tb_venda tv INNER JOIN tb_cliente tc ON (tv.cliente = tc.id_cliente) INNER JOIN tb_produto tp ON (tv.produto = tp.id_produto)";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$resposta = $sqlPreparado->execute();
 			$lista = $sqlPreparado->fetchAll(PDO::FETCH_ASSOC);
-			//var_dump($lista);
+			
 
 			$vetorDeObjetos = array();
 			foreach ($lista as $linha) {
@@ -22,13 +22,10 @@
 		}
 
 		/*
-
 			SELECT tc.nome, tv.valor_final, tp.nome FROM `tb_venda` tv 
-INNER JOIN tb_itens_vendas ti ON (ti.id_venda = tv.id_venda) 
-INNER JOIN tb_cliente tc ON (tv.cliente = tc.id_cliente)
-INNER JOIN tb_produto tp ON (ti.id_produto = tp.id_produto) 
-
-
+			INNER JOIN tb_itens_vendas ti ON (ti.id_venda = tv.id_venda) 
+			INNER JOIN tb_cliente tc ON (tv.cliente = tc.id_cliente)
+			INNER JOIN tb_produto tp ON (ti.id_produto = tp.id_produto) 
 		*/
 		
 		public function transformaDadosDoBancoEmObjeto($dadosDoBanco)
@@ -39,41 +36,44 @@ INNER JOIN tb_produto tp ON (ti.id_produto = tp.id_produto)
 			$venda->setValorFinal($dadosDoBanco['valor_final']);
 			$venda->setValorTotal($dadosDoBanco['valor_total']);
 			$venda->setDesconto($dadosDoBanco['desconto']);
-
+			$venda->setQuantVendida($dadosDoBanco['quantidade']);
+			$venda->setProduto($dadosDoBanco['produto']);
+			
+			//$venda = new Venda();
+ 			
  			return $venda;
 		
 		}
 		public function salvarVendaNoBanco($dadosDoFormulario){
 			$sql = "INSERT INTO 
 						tb_venda 
-						(id_venda, cliente, valor_final, valor_total, desconto) 
+						(id_venda, cliente, valor_final, valor_total, desconto, quantidade, produto) 
 					VALUES 
-						(NULL, :cliente, :valorf, :valort, :desconto)";
+						(NULL, :cliente, :valorf, :valort, :desconto, :quantidade, :produto)";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->errorInfo();
 			$sqlPreparado->bindValue(":cliente",$dadosDoFormulario['cliente']);
 			$sqlPreparado->bindValue(":valorf",$dadosDoFormulario['valorf']);
 			$sqlPreparado->bindValue(":valort",$dadosDoFormulario['valort']);
 			$sqlPreparado->bindValue(":desconto",$dadosDoFormulario['desconto']);
-			$resposta = $sqlPreparado->execute();
-
-
-			$idVenda = Conexao::meDeAConexao()->lastInsertId($sql);
-
-			//salvar os itens dela
-			$sql = "INSERT INTO 
-						tb_itens_vendas 
-						(id_item_venda, id_venda, id_produto, quantidade) 
-					VALUES 
-						(NULL, :venda, :produto, :quantidade)";
-			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
-
-			$sqlPreparado->bindValue(":venda",$idVenda);
-			$sqlPreparado->bindValue(":produto",$dadosDoFormulario['produto']);
 			$sqlPreparado->bindValue(":quantidade",$dadosDoFormulario['quantvenda']);
+			$sqlPreparado->bindValue(":produto",$dadosDoFormulario['produto']);
 			$resposta = $sqlPreparado->execute();
-			var_dump($sqlPreparado->errorInfo());
 		}
 		
+		public function atualizaEstoque(){
+
+		}
+
+		public function buscarVendaPorIdNoBanco($id){
+			$sql = "SELECT tv.id_venda, tp.nome as produto, tv.quantidade, tv.desconto, tv.valor_total, tv.valor_final, tc.nome as cliente FROM tb_venda tv INNER JOIN tb_cliente tc ON (tv.cliente = tc.id_cliente) INNER JOIN tb_produto tp ON (tv.produto = tp.id_produto) WHERE id_venda=:id";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":id",$id);
+			$resposta = $sqlPreparado->execute();
+			$produto = $this->transformaDadosDoBancoEmObjeto($sqlPreparado->fetch(PDO::FETCH_ASSOC));
+			return $produto;	
+		}
+
 		public function excluir($id){
 			$sql = "DELETE  FROM tb_venda WHERE id_venda=:id";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);

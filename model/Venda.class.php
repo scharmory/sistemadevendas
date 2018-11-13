@@ -1,10 +1,12 @@
-<?php
+<?php	
 	class Venda{
 		private $idVenda;
-		private $cliente;
+		private $produto;
+		private $quantVendida;
+		private $desconto;
 		private $valorTotal;
 		private $valorFinal;
-		private $desconto;
+		private $cliente;
 
 		public function getIdVenda(){
 			return $this->idVenda;
@@ -13,12 +15,25 @@
 			$this->idVenda = $idVenda;
 		}
 
-		
-		public function getCliente(){
-			return $this->cliente;
+		public function getProduto(){
+			return $this->produto;
 		}
-		public function setCliente($cliente){
-			$this->cliente = $cliente;
+		public function setProduto($produto){
+			$this->produto = $produto;
+		}
+
+		public function getQuantVendida(){
+			return $this->quantVendida;
+		}
+		public function setQuantVendida($quantVendida){
+			$this->quantVendida = $quantVendida;
+		}
+
+		public function getDesconto(){
+			return $this->desconto;
+		}
+		public function setDesconto($desconto){
+			$this->desconto = $desconto;
 		}
 
 		public function getValorTotal(){
@@ -34,12 +49,13 @@
 		public function setValorFinal($valorFinal){
 			$this->valorFinal = $valorFinal;
 		}
-
-		public function getDesconto(){
-			return $this->desconto;
+		public function getCliente(){
+			return $this->cliente;
 		}
-		public function setDesconto($desconto){
-			$this->desconto = $desconto;
+		public function setCliente($cliente){
+			$this->cliente = $cliente;
 		}
+		
+		
 	}
 ?>

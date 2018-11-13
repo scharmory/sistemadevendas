@@ -37,7 +37,7 @@
 				?>
 			</div>
 			<div class="row">
-				<table class="display" id="tabela_registro">
+				<table class="table" id="tabela_registro">
 		            <thead>
 		                <tr>                       
 		                    <th>Nome</th>         
@@ -59,7 +59,7 @@
 									<td><?=$cliente->getTelefone()?></td>
 									<td>
 										<a class="btn-cadastro" href="clientes.php?op=excluir&id=<?=$cliente-> getIdCliente()?>" > excluir cliente </a>
-										<a class="btn-cadastro" href="dadoscliente.php?id=<?=$cliente->getIdCliente()?>"> ver cliente </a>
+										<a class="btn-cadastro" href="alterarCliente.php?id=<?=$cliente->getIdCliente()?>"> editar cliente </a>
 									</td>
 								</tr>
 						<?php

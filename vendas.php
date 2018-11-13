@@ -18,6 +18,7 @@
 		<title>Controle de Vendas - Vendas </title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="datatables/datatables.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/estilo.css" />
 	</head>
 	<body>
@@ -32,24 +33,51 @@
 				<?php
 					$listaDeVendas = $controle->listarVendas();
 					foreach ($listaDeVendas as $venda) :
-				?>
-						<div class="caixa-produto col-md-3">
-						 	<h1><?=$venda->getCliente()?></h1>
-							<h1>Preço de venda: R$<?=$venda->getValorFinal()?></h1>
-							<h1>Qtd. no estoque: <?=$venda->getDesconto()?></h1>
-							<a class="btn btn-default btn-cadastro" href="vendas.php?op=excluir&id=<?=$venda-> getIdVenda()?>" > excluir venda </a>
-							<a class="btn btn-default btn-cadastro" href="dadosvenda.php?id=<?=$venda->getIdVenda()?>"> ver venda </a>
-						</div>
-				<?php
 					endforeach;
 				?>
 			</div>
+			<div class="row">
+				<table class="table" id="tabela_registro">
+		            <thead>
+		                <tr>                       
+		                    <th>Produto</th>
+		                    <th>Quant. Vendida</th>
+		                    <th>Desconto</th>       
+		                    <th>Valor Total</th>   
+		                   	<th>Valor Final</th>                 
+		                    <th>Cliente</th>    
+		      				<th></th>                          
+		                </tr>
+		            </thead>
+		            <tbody>
+		                <?php
+		                	$listaDeVendas = $controle->listarVendas();
+							foreach ($listaDeVendas as $venda) :
+						?>
+								<tr class='gradeA'>
+									<td><?=$venda->getProduto()?></td>
+									<td><?=$venda->getQuantVendida()?></td>
+									<td><?=$venda->getDesconto()?></td>
+									<td><?=$venda->getValorTotal()?></td>
+									<td><?=$venda->getValorFinal()?></td>
+									<td><?=$venda->getCliente()?></td>
+									<td>
+										<a class="btn-cadastro" href="vendas.php?op=excluir&id=<?=$venda-> getIdVenda()?>" > excluir venda </a>
+										<a class="btn-cadastro" href="alterarVenda.php?id=<?=$venda-> getIdVenda()?>" > editar venda </a>
+									</td>
+								</tr>
+						<?php
+							endforeach;
+						?>
+					</tbody>
+				</table>
+			</div>
 		</div>
-		<?php
-			
-		?>
+
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="datatables/datatables.min.js"></script>
+		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>
 
