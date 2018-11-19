@@ -56,7 +56,7 @@
 									<td><?=$fornecedor->getEndereco()?></td>
 									<td><?=$fornecedor->getTelefone()?></td>
 									<td>
-										<a class="btn-cadastro" href="fornecedores.php?op=excluir&id=<?=$fornecedor-> getIdFornecedor()?>" > excluir fornecedor </a>
+										<a class="btn-cadastro" href="fornecedors.php?op=excluir&id=<?=$fornecedor-> getIdFornecedor()?>" > excluir fornecedor </a>
 										<a class="btn-cadastro" href="alterarFornecedor.php?id=<?=$fornecedor->getIdFornecedor()?>"> editar fornecedor </a>
 									</td>
 								</tr>
