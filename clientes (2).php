@@ -3,9 +3,9 @@
 		    include_once("controller/LoginController.class.php");
 		    LoginController::verificaLogado();
 
-		    include_once("controller/FornecedorController.class.php");
-		    include_once("model/Fornecedor.class.php");		    
-			$controle = new FornecedorController();
+		    include_once("controller/ClienteController.class.php");
+		    include_once("model/Cliente.class.php");		    
+			$controle = new ClienteController();
 
 
 			if (isset($_GET['id'])){
@@ -15,7 +15,7 @@
 		?>
 <html>
 	<head>
-		<title>Controle de Vendas - Fornecedores </title>
+		<title>Controle de Vendas - Clientes </title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="datatables/datatables.min.css" />
@@ -27,12 +27,12 @@
 			<img class="img-titulo" src="imagens/siver-roxo.png">
 			<br>
 			<a class=" btn btn-default float-left btn-cadastro" href="inicio.php" > Voltar </a>
-		 	<a class=" btn btn-default pull-left btn-cadastro" href="cadfornecedor.php"> Cadastrar Fornecedor </a>
+		 	<a class=" btn btn-default pull-left btn-cadastro" href="cadcliente.php"> Cadastrar Cliente </a>
 	 		<a class=" btn btn-default float-right btn-cadastro" href="sair.php" > Sair </a>
 	 		<div class="row">
 				<?php
-					$listaDeFornecedores = $controle->listarFornecedores();
-					foreach ($listaDeFornecedores as $fornecedor) :
+					$listaDeClientes = $controle->listarClientes();
+					foreach ($listaDeClientes as $cliente) :
 					endforeach;
 				?>
 			</div>
@@ -42,22 +42,24 @@
 		                <tr>                       
 		                    <th>Nome</th>         
 		                    <th>Endereço</th>          
+		                    <th>Celular</th>
 		                    <th>Telefone</th> 
-		                   	<th></th>                             
+		        			<th></th>                             
 		                </tr>
 		            </thead>
 		            <tbody>
 		                <?php
-		                	$listaDeFornecedores = $controle->listarFornecedores();
-							foreach ($listaDeFornecedores as $fornecedor) :
+		                	$listaDeClientes = $controle->listarClientes();
+							foreach ($listaDeClientes as $cliente) :
 						?>
 								<tr class='gradeA'>
-									<td><?=$fornecedor->getNome()?></td>
-									<td><?=$fornecedor->getEndereco()?></td>
-									<td><?=$fornecedor->getTelefone()?></td>
+									<td><?=$cliente->getNome()?></td>
+									<td><?=$cliente->getEndereco()?></td>
+									<td><?=$cliente->getCelular()?></td>
+									<td><?=$cliente->getTelefone()?></td>
 									<td>
-										<a class="btn-cadastro" href="fornecedores.php?op=excluir&id=<?=$fornecedor-> getIdFornecedor()?>" > excluir fornecedor </a>
-										<a class="btn-cadastro" href="alterarFornecedor.php?id=<?=$fornecedor->getIdFornecedor()?>"> editar fornecedor </a>
+										<a class="btn-cadastro" href="clientes.php?op=excluir&id=<?=$cliente-> getIdCliente()?>" > excluir cliente </a>
+										<a class="btn-cadastro" href="alterarCliente.php?id=<?=$cliente->getIdCliente()?>"> editar cliente </a>
 									</td>
 								</tr>
 						<?php
@@ -74,7 +76,5 @@
 		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>
-
-
 
 

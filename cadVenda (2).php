@@ -58,21 +58,21 @@
 				</div>
 				<div class="form-group">
 					<label for="desconto">Desconto (em %)</label>
-					<input type="text" name="desconto" id="desconto" class="form-control" placeholder="Digite o desconto em %" required/>
+					<input type="text" name="desconto" id="desconto" class="form-control" placeholder="Digite o preço de venda do produto" required/>
 				</div>
 				<div class="form-group">
 					<label for="valort">Valor total (sem desconto)</label>
-					<input type="text" name="valort" id="valort" class="form-control" required/>
+					<input type="text" name="valort" id="valort" class="form-control" placeholder="Digite o preço de venda do produto" required/>
 				</div>
 				<div class="form-group">
 					<label for="valorf">Valor final</label>
-					<input type="text" name="valorf" id="valorf" class="form-control" required/>
+					<input type="text" name="valorf" id="valorf" class="form-control" placeholder="Digite o preço de venda do produto" required/>
 				</div>
 				<div class="form-group">
 					<label for="cliente">Cliente</label>
 					<select name="cliente" id="cliente" class="form-control" required="">
 						
-							<option value="">Selecione um Cliente</option>
+							<option value="">Selecione um Produto</option>
 							<?php
 								foreach ($listaDeClientes as $cliente) {
 							?>
