@@ -14,7 +14,20 @@ body {
 	width: 350px;
 	
 }
-
+.btn-editar{
+	color: #2d2d20;
+	margin-left: 2px;
+}
+.btn-excluir{
+	color: #ad292b;
+	margin-right: 2px;
+}
+#tabela_registro_wrapper{
+	width: 100%;	
+	background-color: #ffffff73;
+	padding: 20px;
+	border-radius: 15px;
+}
 .img-centralizado{
 	display: block;
 	margin: 0 auto;

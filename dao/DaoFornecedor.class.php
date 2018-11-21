@@ -63,9 +63,9 @@
 					WHERE id_fornecedor=:id";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":id",$post['codigo']);
-			$sqlPreparado->bindValue(":nome",$post['nome']);
-			$sqlPreparado->bindValue(":endereco",$post['endereco']);
-			$sqlPreparado->bindValue(":telefone",$post['telefone']);
+			$sqlPreparado->bindValue(":nome",$post['nomef']);
+			$sqlPreparado->bindValue(":endereco",$post['enderecof']);
+			$sqlPreparado->bindValue(":telefone",$post['telefonef']);
 			$resposta = $sqlPreparado->execute();
 		}
 		

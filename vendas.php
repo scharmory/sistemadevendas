@@ -29,13 +29,7 @@
 			<a class=" btn btn-default float-left btn-cadastro" href="inicio.php" > Voltar </a>
 		 	<a class=" btn btn-default pull-left btn-cadastro" href="cadvenda.php"> Cadastrar Vendas </a>
 	 		<a class=" btn btn-default float-right btn-cadastro" href="sair.php" > Sair </a>
-	 		<div class="row">
-				<?php
-					$listaDeVendas = $controle->listarVendas();
-					foreach ($listaDeVendas as $venda) :
-					endforeach;
-				?>
-			</div>
+	 		
 			<div class="row">
 				<table class="table" id="tabela_registro">
 		            <thead>

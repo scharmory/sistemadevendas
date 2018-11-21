@@ -66,18 +66,23 @@
 					WHERE id_cliente=:id";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":id",$post['codigo']);
-			$sqlPreparado->bindValue(":nome",$post['nome']);
-			$sqlPreparado->bindValue(":endereco",$post['endereco']);
-			$sqlPreparado->bindValue(":celular",$post['celular']);
-			$sqlPreparado->bindValue(":telefone",$post['telefone']);
+			$sqlPreparado->bindValue(":nome",$post['nomec']);
+			$sqlPreparado->bindValue(":endereco",$post['enderecoc']);
+			$sqlPreparado->bindValue(":celular",$post['celularc']);
+			$sqlPreparado->bindValue(":telefone",$post['telefonec']);
 			$resposta = $sqlPreparado->execute();
 		}
 
 		public function excluir($id){
+			
 			$sql = "DELETE  FROM tb_cliente WHERE id_cliente=:id";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":id",$id);
+
 			$resposta = $sqlPreparado->execute();
+			
+			return $sqlPreparado->rowCount();
+			
 		}
 
 	}

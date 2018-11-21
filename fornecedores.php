@@ -17,6 +17,7 @@
 	<head>
 		<title>Controle de Vendas - Fornecedores </title>
 		<meta charset="utf-8">
+		<link href="fontawesome-5.0.13/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="datatables/datatables.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/estilo.css" />
@@ -27,15 +28,9 @@
 			<img class="img-titulo" src="imagens/siver-roxo.png">
 			<br>
 			<a class=" btn btn-default float-left btn-cadastro" href="inicio.php" > Voltar </a>
-		 	<a class=" btn btn-default pull-left btn-cadastro" href="cadfornecedor.php"> Cadastrar Fornecedor </a>
+		 	<a class=" btn btn-default pull-left btn-cadastro" href="info-fornecedor.php"> Cadastrar Fornecedor </a>
 	 		<a class=" btn btn-default float-right btn-cadastro" href="sair.php" > Sair </a>
-	 		<div class="row">
-				<?php
-					$listaDeFornecedores = $controle->listarFornecedores();
-					foreach ($listaDeFornecedores as $fornecedor) :
-					endforeach;
-				?>
-			</div>
+	 		
 			<div class="row">
 				<table class="table" id="tabela_registro">
 		            <thead>
@@ -56,8 +51,8 @@
 									<td><?=$fornecedor->getEndereco()?></td>
 									<td><?=$fornecedor->getTelefone()?></td>
 									<td>
-										<a class="btn-cadastro" href="fornecedores.php?op=excluir&id=<?=$fornecedor-> getIdFornecedor()?>" > excluir fornecedor </a>
-										<a class="btn-cadastro" href="alterarFornecedor.php?id=<?=$fornecedor->getIdFornecedor()?>"> editar fornecedor </a>
+										<a class="btn-excluir" href="fornecedores.php?op=excluir&id=<?=$fornecedor-> getIdFornecedor()?>" >  <i class="far fa-trash-alt"></i> </a>
+										<a class="btn-editar"  href="info-fornecedor.php?id=<?=$fornecedor->getIdFornecedor()?>"><i class="fas fa-pencil-alt"></i> </a>
 									</td>
 								</tr>
 						<?php

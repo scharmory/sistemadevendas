@@ -3,7 +3,7 @@
 	include_once 'controller/FornecedorController.class.php';
 	$controle = new FornecedorController();
 	$fornecedor = new Fornecedor();
-
+	
 	if(isset($_POST['btn-cadastrar'])){
 		if($_POST["codigo"] != 0){
 			$controle -> atualizarFornecedor($_POST);

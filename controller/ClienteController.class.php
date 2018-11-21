@@ -9,7 +9,7 @@
 		function excluir($id)
 		{
 			$dao = new DaoCliente ();
-			$dao ->excluir($id);
+			return $dao ->excluir($id);
 		}
 		
 		public function listarClientes(){
@@ -21,6 +21,10 @@
 				$dao = new DaoCliente ();
 				return $dao ->buscarClientePorIdNoBanco($id);
 			}
+		function atualizarCliente($post){
+			$dao = new DaoCliente();
+			 $dao -> atualizar($post);
+		}
 	}
 
 ?>
