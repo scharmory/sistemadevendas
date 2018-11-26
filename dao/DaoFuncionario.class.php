@@ -61,15 +61,15 @@
 					SET 
 					nome=:nome,
 					endereco=:endereco,
-					celular=:celular,
+					telefone=:telefone,
 					salario=:salario
 					WHERE id_funcionario=:id";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":id",$post['codigo']);
-			$sqlPreparado->bindValue(":nome",$post['nome']);
-			$sqlPreparado->bindValue(":endereco",$post['endereco']);
-			$sqlPreparado->bindValue(":celular",$post['celular']);
-			$sqlPreparado->bindValue(":salario",$post['salario']);
+			$sqlPreparado->bindValue(":nome",$post['nomef']);
+			$sqlPreparado->bindValue(":endereco",$post['enderecof']);
+			$sqlPreparado->bindValue(":telefone",$post['telefonef']);
+			$sqlPreparado->bindValue(":salario",$post['salariof']);
 			$resposta = $sqlPreparado->execute();
 		}
 
@@ -78,6 +78,8 @@
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":id",$id);
 			$resposta = $sqlPreparado->execute();
+			return $sqlPreparado->rowCount();
+
 		}
 
 	}

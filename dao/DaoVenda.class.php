@@ -79,6 +79,7 @@
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":id",$id);
 			$resposta = $sqlPreparado->execute();
+			return $sqlPreparado->rowCount();
 		}
 
 	}

@@ -4,6 +4,7 @@
 		private $nome;
 		private $endereco;
 		private $telefone;
+		private $salario;
 
 		public function getIdFuncionario(){
 			return $this->idFuncionario;

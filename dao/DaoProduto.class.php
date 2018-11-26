@@ -64,12 +64,12 @@
 					WHERE id_produto=:id";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":id",$post['codigo']);
-			$sqlPreparado->bindValue(":nome",$post['nome']);
-			$sqlPreparado->bindValue(":precoc",$post['precoc']);
-			$sqlPreparado->bindValue(":precov",$post['precov']);
-			$sqlPreparado->bindValue(":estoque",$post['estoque']);
+			$sqlPreparado->bindValue(":nome",$post['cnomepro']);
+			$sqlPreparado->bindValue(":precoc",$post['cprecoc']);
+			$sqlPreparado->bindValue(":precov",$post['cprecov']);
+			$sqlPreparado->bindValue(":estoque",$post['cestoque']);
 			$resposta = $sqlPreparado->execute();		
-			
+			//var_dump($sqlPreparado->errorInfo());
 		}
 		
 		public function excluir($id){
@@ -77,6 +77,8 @@
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":id",$id);
 			$resposta = $sqlPreparado->execute();
+			return $sqlPreparado->rowCount();
+
 		}
 
 	}

@@ -6,11 +6,13 @@
 		    include_once("controller/VendaController.class.php");
 		    include_once("model/Venda.class.php");		    
 			$controle = new VendaController();
-
+			$mostra = "none";
 
 			if (isset($_GET['id'])){
+
 				$id=$_GET['id'];
-				$controle -> excluir($id);
+				$retorno = $controle -> excluir($id);
+				echo $retorno;
 			}
 		?>
 <html>
@@ -23,6 +25,27 @@
 	</head>
 	<body>
 		<div class="container">
+			<?php
+				if(isset($retorno)){
+					$mostra = "block";
+					if($retorno > 0){
+						$mensagem =  "Venda Excluída!";
+						$titulo = "Sucesso";
+						$tipo = "success";
+					}else{
+						$mensagem = "Não foi possível excluir a venda.";
+						$titulo = "Atenção";
+						$tipo = "warning";
+					}
+				}
+
+			?>
+			<div class="alert alert-<?=$tipo?> alert-dismissible fade show" role="alert" style="display:<?=$mostra?>">
+			  <strong><?=$titulo?> !</strong> <?=$mensagem?>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button> 
+			</div>
 			<br>
 			<img class="img-titulo" src="imagens/siver-roxo.png">
 			<br>
@@ -57,7 +80,6 @@
 									<td><?=$venda->getCliente()?></td>
 									<td>
 										<a class="btn-cadastro" href="vendas.php?op=excluir&id=<?=$venda-> getIdVenda()?>" > excluir venda </a>
-										<a class="btn-cadastro" href="alterarVenda.php?id=<?=$venda-> getIdVenda()?>" > editar venda </a>
 									</td>
 								</tr>
 						<?php

@@ -10,7 +10,7 @@
 		function excluir($id)
 		{
 			$dao = new DaoFornecedor ();
-			$dao ->excluir($id);
+			return $dao ->excluir($id);
 		}
 
 		public function listarFornecedores(){

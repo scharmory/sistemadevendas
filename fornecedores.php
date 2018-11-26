@@ -6,11 +6,13 @@
 		    include_once("controller/FornecedorController.class.php");
 		    include_once("model/Fornecedor.class.php");		    
 			$controle = new FornecedorController();
-
+			$mostra = "none";
 
 			if (isset($_GET['id'])){
+
 				$id=$_GET['id'];
-				$controle -> excluir($id);
+				$retorno = $controle -> excluir($id);
+				echo $retorno;
 			}
 		?>
 <html>
@@ -24,6 +26,27 @@
 	</head>
 	<body>
 		<div class="container">
+			<?php
+				if(isset($retorno)){
+					$mostra = "block";
+					if($retorno > 0){
+						$mensagem =  "Cliente Excluído!";
+						$titulo = "Sucesso";
+						$tipo = "success";
+					}else{
+						$mensagem = "Não foi possível excluir o cliente, verifique se já foi realizada uma venda para ele";
+						$titulo = "Atenção";
+						$tipo = "warning";
+					}
+				}
+
+			?>
+			<div class="alert alert-<?=$tipo?> alert-dismissible fade show" role="alert" style="display:<?=$mostra?>">
+			  <strong><?=$titulo?> !</strong> <?=$mensagem?>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button> 
+			</div>
 			<br>
 			<img class="img-titulo" src="imagens/siver-roxo.png">
 			<br>

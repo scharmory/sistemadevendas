@@ -30,7 +30,7 @@
 				if(isset($retorno)){
 					$mostra = "block";
 					if($retorno > 0){
-						$mensagem =  "Cliente Excluído com Sucesso!!!";
+						$mensagem =  "Cliente Excluído!";
 						$titulo = "Sucesso";
 						$tipo = "success";
 					}else{

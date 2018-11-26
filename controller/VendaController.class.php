@@ -38,7 +38,7 @@
 		public function excluir($id)
 		{
 			$dao = new DaoVenda ();
-			$dao ->excluir($id);
+			return $dao ->excluir($id);
 		}
 
 		public function listarVendas(){

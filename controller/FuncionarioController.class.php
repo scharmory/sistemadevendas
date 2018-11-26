@@ -10,7 +10,7 @@
 		function excluir($id)
 		{
 			$dao = new DaoFuncionario ();
-			$dao ->excluir($id);
+			return $dao ->excluir($id);
 		}
 
 		public function listarFuncionarios(){

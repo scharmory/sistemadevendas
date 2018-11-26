@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+	include_once("model/Fornecedor.class.php");
 	include_once 'controller/FornecedorController.class.php';
 	$controle = new FornecedorController();
 	$fornecedor = new Fornecedor();
